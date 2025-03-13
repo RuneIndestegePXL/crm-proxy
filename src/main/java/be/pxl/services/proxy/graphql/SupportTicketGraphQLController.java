@@ -1,20 +1,15 @@
-package be.pxl.services.federationgateway.graphql;
+package be.pxl.services.proxy.graphql;
 
-import be.pxl.services.federationgateway.contracts.SupportTicketDto;
-import be.pxl.services.federationgateway.contracts.SupportTicketCreateRequest;
-import be.pxl.services.federationgateway.contracts.SupportTicketUpdateRequest;
+import be.pxl.services.proxy.contracts.SupportTicketDto;
+import be.pxl.services.proxy.contracts.SupportTicketCreateRequest;
+import be.pxl.services.proxy.contracts.SupportTicketUpdateRequest;
 import com.netflix.graphql.dgs.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.graphql.data.method.annotation.Argument;
-import org.springframework.graphql.data.method.annotation.MutationMapping;
-import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

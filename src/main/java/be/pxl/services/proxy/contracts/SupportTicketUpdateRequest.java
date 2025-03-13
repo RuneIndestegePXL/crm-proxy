@@ -1,4 +1,4 @@
-package be.pxl.services.federationgateway.contracts;
+package be.pxl.services.proxy.contracts;
 
 public record SupportTicketUpdateRequest (
         long id,

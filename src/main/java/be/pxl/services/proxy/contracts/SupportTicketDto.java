@@ -1,6 +1,4 @@
-package be.pxl.services.federationgateway.contracts;
-
-import be.pxl.services.federationgateway.contracts.TicketStatus;
+package be.pxl.services.proxy.contracts;
 
 import java.time.LocalDateTime;
 

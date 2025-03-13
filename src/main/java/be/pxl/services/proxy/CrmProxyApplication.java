@@ -1,4 +1,4 @@
-package be.pxl.services.federationgateway;
+package be.pxl.services.proxy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

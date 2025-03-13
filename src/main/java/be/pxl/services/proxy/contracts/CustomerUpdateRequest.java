@@ -1,12 +1,11 @@
-package be.pxl.services.federationgateway.contracts;
+package be.pxl.services.proxy.contracts;
 
-public record CustomerCreateRequest(
+public record CustomerUpdateRequest (
     String firstName,
     String lastName,
     String email,
     String phone,
     String address,
     String city,
-    String zipCode
-) {
+    String zipCode){
 }

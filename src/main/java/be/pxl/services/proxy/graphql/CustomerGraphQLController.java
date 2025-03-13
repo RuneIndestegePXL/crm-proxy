@@ -1,8 +1,8 @@
-package be.pxl.services.federationgateway.graphql;
+package be.pxl.services.proxy.graphql;
 
-import be.pxl.services.federationgateway.contracts.Customer;
-import be.pxl.services.federationgateway.contracts.CustomerCreateRequest;
-import be.pxl.services.federationgateway.contracts.CustomerUpdateRequest;
+import be.pxl.services.proxy.contracts.Customer;
+import be.pxl.services.proxy.contracts.CustomerCreateRequest;
+import be.pxl.services.proxy.contracts.CustomerUpdateRequest;
 import com.netflix.graphql.dgs.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

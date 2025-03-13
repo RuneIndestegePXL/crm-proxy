@@ -1,4 +1,4 @@
-package be.pxl.services.federationgateway.contracts;
+package be.pxl.services.proxy.contracts;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.netflix.graphql.dgs.DgsComponent;

@@ -1,4 +1,4 @@
-package be.pxl.services.federationgateway.scalar;
+package be.pxl.services.proxy.scalar;
 
 import com.netflix.graphql.dgs.DgsScalar;
 import graphql.schema.Coercing;

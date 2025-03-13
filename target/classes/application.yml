@@ -1,6 +1,6 @@
 spring:
   application:
-    name: federation-gateway
+    name: crm-proxy
   main:
     allow-bean-definition-overriding: true
 
@@ -15,5 +15,8 @@ dgs:
     federation:
       enabled: true
 
-SUPPORTTICKETS_URL: http://localhost:8081/api/supporttickets
-CUSTOMERS_URL: http://localhost:8081/api/customers
+#SUPPORTTICKETS_URL: http://localhost:8081/api/supporttickets
+#CUSTOMERS_URL: http://localhost:8081/api/customers
+
+SUPPORTTICKETS_URL: https://customer-service-usecase-ace.apps.sandbox.id.internal/api/supporttickets
+CUSTOMERS_URL: https://customer-service-usecase-ace.apps.sandbox.id.internal/api/customers

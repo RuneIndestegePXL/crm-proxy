@@ -1,0 +1,12 @@
+be\pxl\services\proxy\contracts\TicketStatus.class
+be\pxl\services\proxy\config\RestTemplateConfig.class
+be\pxl\services\proxy\contracts\SupportTicketUpdateRequest.class
+be\pxl\services\proxy\contracts\CustomerCreateRequest.class
+be\pxl\services\proxy\contracts\SupportTicketCreateRequest.class
+be\pxl\services\proxy\contracts\Customer.class
+be\pxl\services\proxy\contracts\SupportTicketDto.class
+be\pxl\services\proxy\CrmProxyApplication.class
+be\pxl\services\proxy\contracts\CustomerUpdateRequest.class
+be\pxl\services\proxy\graphql\CustomerGraphQLController.class
+be\pxl\services\proxy\scalar\DateTimeScalar.class
+be\pxl\services\proxy\graphql\SupportTicketGraphQLController.class

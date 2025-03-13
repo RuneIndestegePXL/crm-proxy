@@ -1,0 +1,12 @@
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\config\RestTemplateConfig.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\contracts\Customer.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\contracts\CustomerCreateRequest.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\contracts\CustomerUpdateRequest.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\contracts\SupportTicketCreateRequest.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\contracts\SupportTicketDto.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\contracts\SupportTicketUpdateRequest.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\contracts\TicketStatus.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\CrmProxyApplication.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\graphql\CustomerGraphQLController.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\graphql\SupportTicketGraphQLController.java
+C:\Users\runei\Documents\stage\code\usecase\crm-proxy\src\main\java\be\pxl\services\proxy\scalar\DateTimeScalar.java
