@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: federation-gateway
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8083
+
+dgs:
+  graphql:
+    schema-locations:
+      - "classpath*:graphql/**/*.graphqls"
+    path: /graphql
+    federation:
+      enabled: true
+
+#SUPPORTTICKETS_URL: http://localhost:8081/api/supporttickets
+#CUSTOMERS_URL: http://localhost:8081/api/customers
+
+SUPPORTTICKETS_URL: https://customer-service-usecase-ace.apps.sandbox.id.internal/api/supporttickets
+CUSTOMERS_URL: https://customer-service-usecase-ace.apps.sandbox.id.internal/api/customers

@@ -1,0 +1,120 @@
+# Customer Relationship Management schema
+
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable", "@external", "@extends"])
+
+"""Represents a customer in the CRM system."""
+type Customer @key(fields: "id"){
+  """The unique identifier of the customer."""
+  id: ID! @shareable
+  """The first name of the customer."""
+  firstName: String! @shareable
+  """The last name of the customer."""
+  lastName: String! @shareable
+  """The email address of the customer."""
+  email: String! @shareable
+  """The phone number of the customer."""
+  phone: String
+  """The address of the customer."""
+  address: String
+  """The city of the customer."""
+  city: String
+  """The zip code of the customer."""
+  zipCode: String
+  """The date and time when the customer was created."""
+  createdAt: String
+  """The date and time when the customer was last updated."""
+  updatedAt: String
+  """The support tickets of the customer."""
+  supportTickets: [SupportTicket!]
+  """The closed support tickets of the customer."""
+  closedSupportTickets: [SupportTicket!]
+  #orders: [Order!]
+}
+
+
+type Order @key(fields: "id") @extends{
+  id: ID!  @external
+  #firstName: String! @external
+  #orders: [Order] @requires(fields: "id")
+
+}
+
+type SupportTicket @key(fields: "id"){
+  """The unique identifier of the support ticket."""
+  id: ID!
+    """The title of the support ticket."""
+  title: String!
+    """The description of the support ticket."""
+  description: String
+    """The status of the support ticket."""
+  status: String
+    """The date and time when the support ticket was created."""
+  createdAt: String
+    """The date and time when the support ticket was last updated."""
+  updatedAt: String
+}
+
+type Query {
+  """Retrieve a customer by their ID."""
+  getCustomer(id: ID!): Customer
+  """List all customers."""
+  listCustomers: [Customer!]!
+  #"""Retrieve customers by state."""
+  #customersByState(state: String!): [Customer!]!
+  """Retrieve a support ticket by its ID."""
+  getSupportTicket(id: ID!): SupportTicket
+  """List all active support tickets."""
+  listSupportTickets: [SupportTicket!]!
+  """List all closed support tickets."""
+  listClosedSupportTickets: [SupportTicket!]!
+  #"""List all orders."""
+  #listOrders: [Order!] @external
+  #"""Get an order by ID."""
+  #getOrder(id: ID!): Order @external
+  #"""List orders by status."""
+  #ordersByStatus(status: OrderStatus!): [Order!]! @external
+}
+
+
+type Mutation {
+  """Create a new customer."""
+  createCustomer(
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String
+    address: String
+    city: String
+    zipCode: String
+  ): Customer
+  """Update an existing customer."""
+  updateCustomer(
+    id: ID!
+    firstName: String
+    lastName: String
+    email: String
+    phone: String
+    address: String
+    city: String
+    zipCode: String
+  ): Customer
+  """Delete a customer."""
+  deleteCustomer(id: ID!): Boolean
+  """Create a new support ticket."""
+  createSupportTicket(
+      title: String!
+      description: String
+      customerId: ID!
+      ): SupportTicket
+  """Update an existing support ticket."""
+  updateSupportTicket(
+      id: ID!
+      title: String
+      description: String
+      status: String
+      ): SupportTicket
+  """Delete a support ticket."""
+  deleteSupportTicket(id: ID!): Boolean
+
+
+}
