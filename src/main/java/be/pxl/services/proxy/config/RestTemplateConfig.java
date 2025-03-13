@@ -1,50 +1,42 @@
 package be.pxl.services.proxy.config;
 
-
-import org.apache.hc.client5.http.classic.HttpClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-import org.apache.http.conn.ssl.NoopHostnameVerifier;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.TrustStrategy;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContexts;
-
-import org.springframework.context.annotation.Primary;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-
-import javax.net.ssl.SSLContext;
+import javax.net.ssl.*;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-
 
 @Configuration
 public class RestTemplateConfig {
     @Bean
     @Primary
-    public RestTemplate trustingRestTemplate() {
-        try {
-            TrustStrategy acceptingTrustStrategy = (X509Certificate[] chain, String authType) -> true;
+    public RestTemplate trustingRestTemplate() throws NoSuchAlgorithmException, KeyManagementException {
+        TrustManager[] trustAllCerts = new TrustManager[]{
+                new X509TrustManager() {
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return new X509Certificate[0];
+                    }
+                    public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                    }
+                    public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                    }
+                }
+        };
 
-            SSLContext sslContext = SSLContexts.custom()
-                    .loadTrustMaterial(null, acceptingTrustStrategy)
-                    .build();
+        SSLContext sc = SSLContext.getInstance("TLS");
+        sc.init(null, trustAllCerts, new java.security.SecureRandom());
 
-            SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext,
-                    NoopHostnameVerifier.INSTANCE);
+        HostnameVerifier allHostsValid = (hostname, session) -> true;
 
-            CloseableHttpClient httpClient = HttpClients.custom()
-                    .setSSLSocketFactory(csf)
-                    .build();
+        HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 
-            HttpComponentsClientHttpRequestFactory requestFactory =
-                    new HttpComponentsClientHttpRequestFactory((HttpClient) httpClient);
-
-            return new RestTemplate(requestFactory);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to create SSL bypassing RestTemplate", e);
-        }
+        SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        return new RestTemplate(requestFactory);
     }
 }

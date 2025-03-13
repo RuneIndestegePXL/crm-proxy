@@ -1,5 +1,4 @@
 be\pxl\services\proxy\contracts\TicketStatus.class
-be\pxl\services\proxy\config\RestTemplateConfig.class
 be\pxl\services\proxy\contracts\SupportTicketUpdateRequest.class
 be\pxl\services\proxy\contracts\CustomerCreateRequest.class
 be\pxl\services\proxy\contracts\SupportTicketCreateRequest.class
