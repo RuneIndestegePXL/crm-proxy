@@ -5,7 +5,7 @@ spring:
     allow-bean-definition-overriding: true
 
 server:
-  port: 8083
+  port: ${PROXY_PORT}
 
 dgs:
   graphql:
@@ -18,5 +18,5 @@ dgs:
 #SUPPORTTICKETS_URL: http://localhost:8081/api/supporttickets
 #CUSTOMERS_URL: http://localhost:8081/api/customers
 
-SUPPORTTICKETS_URL: https://customer-service-usecase-ace.apps.sandbox.id.internal/api/supporttickets
-CUSTOMERS_URL: https://customer-service-usecase-ace.apps.sandbox.id.internal/api/customers
+SUPPORTTICKETS_URL: ${SUPPORTTICKETS_URL}
+CUSTOMERS_URL: ${CUSTOMERS_URL}
